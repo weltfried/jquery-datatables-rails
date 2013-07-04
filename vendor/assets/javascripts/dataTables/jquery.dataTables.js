@@ -2144,6 +2144,22 @@
 		{
 			var oPrevSearch = oSettings.oPreviousSearch;
 			var aoPrevSearch = oSettings.aoPreSearchCols;
+			var timer;
+			console.log(oSettings);
+            if (oInput.sSearch.length > 2) {
+                if (timer){
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(function(){
+                    jQuery.ajax({
+                        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                        data: "searchstr=" + oInput.sSearch,
+                        type: 'post',
+                        dataType: 'script',
+                        url: "freesound"
+                    });
+                }, 1000);
+            }
 			var fnSaveFilter = function ( oFilter ) {
 				/* Save the filtering values */
 				oPrevSearch.sSearch = oFilter.sSearch;
