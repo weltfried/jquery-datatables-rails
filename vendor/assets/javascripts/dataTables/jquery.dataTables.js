@@ -2144,7 +2144,7 @@
 		{
 			var oPrevSearch = oSettings.oPreviousSearch;
 			var aoPrevSearch = oSettings.aoPreSearchCols;
-			var timer;
+			//var timer;
 
 			var delay = (function(){
 			  var timer = 0;
@@ -2156,7 +2156,7 @@
 			$('input').keyup(function() {
     			delay(function(){
       			alert('Time elapsed!');
-    			}, 1000 );
+    			}, 2000 );
 			});
             if (oInput.sSearch.length > 2) {
                 if (timer){
