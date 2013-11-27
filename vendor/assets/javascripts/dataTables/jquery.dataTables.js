@@ -2145,7 +2145,19 @@
 			var oPrevSearch = oSettings.oPreviousSearch;
 			var aoPrevSearch = oSettings.aoPreSearchCols;
 			var timer;
-			console.log(oSettings);
+
+			var delay = (function(){
+			  var timer = 0;
+			  return function(callback, ms){
+			    clearTimeout (timer);
+			    timer = setTimeout(callback, ms);
+			  };
+			})();
+			$('input').keyup(function() {
+    			delay(function(){
+      			alert('Time elapsed!');
+    			}, 1000 );
+			});
             if (oInput.sSearch.length > 2) {
                 if (timer){
                     clearTimeout(timer);
