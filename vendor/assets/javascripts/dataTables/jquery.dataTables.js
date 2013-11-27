@@ -2154,7 +2154,16 @@
                 }
                 timer = setTimeout(function(){
                     jQuery.ajax({
-                        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                        beforeSend: function(xhr) {
+                        	xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                        	$('#editor-alert').modal("show");
+
+                        },
+                        success: function(data){
+          					jQuery(function($){
+			              		$('#editor-alert').modal("toggle");
+            				});
+	        			},
                         data: "searchstr=" + oInput.sSearch,
                         type: 'post',
                         dataType: 'script',
