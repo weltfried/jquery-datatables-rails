@@ -85,6 +85,8 @@
 		 *  @param {node} nTh The th element for this column
 		 *  @memberof DataTable#oApi
 		 */
+		 var timer;
+
 		function _fnAddColumn( oSettings, nTh )
 		{
 			var oDefaults = DataTable.defaults.columns;
@@ -2146,18 +2148,6 @@
 			var aoPrevSearch = oSettings.aoPreSearchCols;
 			//var timer;
 
-			var delay = (function(){
-			  var timer = 0;
-			  return function(callback, ms){
-			    clearTimeout (timer);
-			    timer = setTimeout(callback, ms);
-			  };
-			})();
-			$('input').keyup(function() {
-    			delay(function(){
-      			alert('Time elapsed!');
-    			}, 2000 );
-			});
             if (oInput.sSearch.length > 2) {
                 if (timer){
                     clearTimeout(timer);
