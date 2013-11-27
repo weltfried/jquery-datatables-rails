@@ -2156,12 +2156,12 @@
                     jQuery.ajax({
                         beforeSend: function(xhr) {
                         	xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-                        	$('#editor-alert').modal("show");
+                        	$('#freesound-search').modal("show");
 
                         },
                         success: function(data){
           					jQuery(function($){
-			              		$('#editor-alert').modal("toggle");
+			              		$('#freesound-search').modal("toggle");
             				});
 	        			},
                         data: "searchstr=" + oInput.sSearch,
